@@ -1,6 +1,7 @@
 # ------------------------------------------
 # CSV Logger for RF Test Equipment
 # Author: Gideon Karasek
+# Created: ‎Friday, ‎May ‎31, ‎2024, ‏‎4:09:02 PM
 # Description: Takes in specific queried data from RF Test equipment,
 #     sets desired datetime format, logs values to csv file titled with
 #     PC's system date
@@ -32,4 +33,5 @@ def log_results(freq, chan_1, chan_2, diff, phase, count, test_name):
                        header=header)
 
     logger.info([float(mhz), float(chan_1), float(chan_2), float(diff), float(phase), int(count)])
+
 
