@@ -1,3 +1,12 @@
+# ------------------------------------------
+# CSV Logger for RF Test Equipment
+# Author: Gideon Karasek
+# Description: Takes in specific queried data from RF Test equipment,
+#     sets desired datetime format, logs values to csv file titled with
+#     PC's system date
+# To Do: Add further functionality for different operating modes
+# ------------------------------------------
+
 import logging
 from csv_logger import CsvLogger
 from datetime import date
@@ -24,19 +33,3 @@ def log_results(freq, chan_1, chan_2, diff, phase, count, test_name):
 
     logger.info([float(mhz), float(chan_1), float(chan_2), float(diff), float(phase), int(count)])
 
-
-def log_results_sweep(count, freq, current_power, target_power, sweep_step):
-    filename = 'log_sweep_sim1.csv'
-    fmt = '%(asctime)s,%(message)s'
-    datefmt = '%m/%d %H:%M:%S'
-    level = logging.INFO
-    header = ['date', 'count', 'frequency', 'current power', 'target power', 'step size']
-    mhz = float(freq) / 1000000
-
-    logger = CsvLogger(filename=filename,
-                       fmt=fmt,
-                       datefmt=datefmt,
-                       level=level,
-                       header=header)
-
-    logger.info([float(count), float(mhz), float(current_power), float(target_power), float(sweep_step)])
